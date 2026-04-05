@@ -1,18 +1,59 @@
-# CDIF Codelist profile
+# CDIF Codelist Profile
 
-A **skos:ConceptScheme**: a set of concepts that define the possible values for a categorical variable. The scheme can define a hierarchy of values from general to more specific. This hierarchy is represented using the skos:broader relationship linking more specific concepts to subsuming more general concepts. If a hierarchy is defined in the scheme the top concept(s), i.e. those that do not have any skos:broader associations, must be identified using the skos:hasTopConcept property on the skos:ConceptScheme.
+A CDIF profile for controlled vocabulary codelists implemented as [SKOS ConceptSchemes](https://www.w3.org/TR/skos-reference/) in JSON-LD. Defines how classification schemes, thesauri, and enumerated value domains are represented with machine-enforceable constraints.
 
-**skos:Concept**: represent the possible values for a categorical variable. In the RDF implementation of a skos:ConceptScheme, these are the requirements for each concept:
-- must specify rdf:type skos:Concept.
-- must have a globally unique, resolvable identifier.
-- must have a skos:inScheme relationship to the containing skos:ConceptScheme.
-- must have at least one skos:prefLabel, but may have multiples as these are language specific (SKOS does not permit more than one skos:prefLabel per language-locale).
-- must provide a definition of the concept with skos:definition, also in language-specific form.
-- must use the skos:broader relationship to indicate its parent in the hierarchy if the concept scheme is hierarchical 
-- a unique (in the scope of the vocabulary) skos:Notation must be provided if skos:Notation is used to denote the skos:Concept in data instances. This is not necessary if unique URIs are used instead of a skos:Notation in data instances. The convention must be defined in a vocabulary profile. skos:Notation values are commonly short strings or abbreviations that are easier for users to interpret than the concept identifier.
-- Other labels may be provided using skos:altLabel, also in language-specific form.
-- skos:narrower relationships (inverse of skos:broader) can be provided, supporting navigation both up and down the concept hierarchy.
+## Specification
 
+- **[CDIFCodelistProfileClasses.md](CDIFCodelistProfileClasses.md)** — Complete classes and properties documentation
+- **[CDIFCodelistProfileStructuredSchema.json](CDIFCodelistProfileStructuredSchema.json)** — JSON Schema for validation (generated from metadataBuildingBlocks)
+- **[rules.shacl](rules.shacl)** — SHACL validation shapes (synced from metadataBuildingBlocks)
 
-This use of SKOS materially aligns with that described in the document [‘Modelling of Eurostat’s Statistical
-Classifications in ShowVoc’](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc) for classification items.
+## ConceptScheme requirements
+
+- Must have a globally unique, resolvable `@id` URI
+- Must have at least one `skos:prefLabel`
+- Must declare top concepts via `skos:hasTopConcept`
+- Must have `schema:identifier`, `schema:dateModified`, and either `schema:license` or `schema:conditionsOfAccess` (CDIF core metadata properties)
+
+## Concept requirements
+
+- Must have a globally unique, resolvable `@id` URI
+- Must have `skos:inScheme` linking to the containing ConceptScheme
+- Must have at least one `skos:prefLabel` (at most one per language)
+- Must have at least one `skos:definition`
+- `skos:notation` is optional but must be unique within the scheme if used
+- Hierarchical concepts must declare both `skos:narrower` and `skos:broader` (see below)
+
+## Bidirectional hierarchy
+
+CDIF codelists require concept hierarchies to be expressed in **both directions**:
+
+- **`skos:narrower`** — needed for JSON-LD tree traversal from `skos:hasTopConcept` root
+- **`skos:broader`** — needed for upward navigation and display trees in applications
+
+Any concept in `skos:narrower` **must** also have `skos:broader` pointing back. Top concepts should not have `skos:broader` within the scheme.
+
+## Array convention
+
+Unlike other CDIF profiles, the Codelist profile does **not** require repeatable properties to always be serialized as arrays. This recognizes standard SKOS practice that allows either a single string or an array for literal values. Consumers should test whether a value is a string or an array before iterating.
+
+## Examples
+
+| File | Description |
+|------|-------------|
+| `Examples/exampleCDIFCodelist.json` | iSamples Sampled Feature Type vocabulary (full, with hierarchy and history notes) |
+| `Examples/exampleCDIFCodelistMinimal.json` | iSamples Materials vocabulary (minimal, with hierarchy) |
+
+## Related repositories
+
+- **[metadataBuildingBlocks](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks)** — Source building block schemas (skosConceptScheme, skosConcept, CDIFCodelistProfile)
+- **[cdif-core](https://github.com/Cross-Domain-Interoperability-Framework/core)** — CDIF Core profile
+- **[validation](https://github.com/Cross-Domain-Interoperability-Framework/validation)** — Validation tools
+
+## Reference
+
+This profile aligns with the approach described in ['Modelling of Eurostat's Statistical Classifications in ShowVoc'](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc).
+
+## License
+
+See [LICENSE](LICENSE).
