@@ -1,0 +1,175 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix cdifcl: <https://cdif.org/validation/codelist/0.1/shacl#> .
+@base <https://www.ogc.org/rules/template/> .
+
+# ============================================================
+# ConceptScheme shape
+# ============================================================
+
+cdifcl:ConceptSchemeShape
+    a sh:NodeShape ;
+    sh:targetClass skos:ConceptScheme ;
+    sh:nodeKind sh:IRI ;
+    sh:message "A CDIF Codelist ConceptScheme must have a resolvable IRI, prefLabel, and hasTopConcept." ;
+
+    # Must have an IRI identifier
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path [ sh:inversePath rdf:type ] ;
+        sh:message "ConceptScheme must be identified by an IRI." ;
+    ] ;
+
+    # Must have at least one prefLabel
+    sh:property cdifcl:schemePrefLabelProperty ;
+
+    # Must have at least one hasTopConcept
+    sh:property cdifcl:schemeHasTopConceptProperty ;
+    .
+
+cdifcl:schemePrefLabelProperty
+    a sh:PropertyShape ;
+    sh:path skos:prefLabel ;
+    sh:minCount 1 ;
+    sh:message "ConceptScheme must have at least one skos:prefLabel." ;
+    .
+
+cdifcl:schemeHasTopConceptProperty
+    a sh:PropertyShape ;
+    sh:path skos:hasTopConcept ;
+    sh:minCount 1 ;
+    sh:message "ConceptScheme must have at least one skos:hasTopConcept identifying top-level concepts." ;
+    .
+
+# ============================================================
+# Concept shape
+# ============================================================
+
+cdifcl:ConceptShape
+    a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:message "A CDIF Codelist Concept must have a resolvable IRI, prefLabel, definition, and inScheme." ;
+
+    # Must have at least one prefLabel
+    sh:property cdifcl:conceptPrefLabelProperty ;
+
+    # Must have at least one definition
+    sh:property cdifcl:conceptDefinitionProperty ;
+
+    # Must have inScheme linking to the containing ConceptScheme
+    sh:property cdifcl:conceptInSchemeProperty ;
+    .
+
+cdifcl:conceptPrefLabelProperty
+    a sh:PropertyShape ;
+    sh:path skos:prefLabel ;
+    sh:minCount 1 ;
+    sh:message "Concept must have at least one skos:prefLabel." ;
+    .
+
+cdifcl:conceptDefinitionProperty
+    a sh:PropertyShape ;
+    sh:path skos:definition ;
+    sh:minCount 1 ;
+    sh:message "Concept must have at least one skos:definition." ;
+    .
+
+cdifcl:conceptInSchemeProperty
+    a sh:PropertyShape ;
+    sh:path skos:inScheme ;
+    sh:minCount 1 ;
+    sh:class skos:ConceptScheme ;
+    sh:message "Concept must have skos:inScheme referencing the containing ConceptScheme." ;
+    .
+
+# ============================================================
+# Notation uniqueness (informational — SHACL cannot fully
+# enforce uniqueness across sibling nodes; this validates that
+# notation values are literal strings when present)
+# ============================================================
+
+cdifcl:conceptNotationProperty
+    a sh:PropertyShape ;
+    sh:path skos:notation ;
+    sh:nodeKind sh:Literal ;
+    sh:message "skos:notation values must be literal strings." ;
+    .
+
+# ============================================================
+# prefLabel language uniqueness (SKOS constraint: at most one
+# prefLabel per language tag per concept)
+# ============================================================
+
+cdifcl:prefLabelUniqueLangShape
+    a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path skos:prefLabel ;
+        sh:uniqueLang true ;
+        sh:message "A concept must not have more than one skos:prefLabel per language." ;
+    ] ;
+    .
+
+cdifcl:schemePrefLabelUniqueLangShape
+    a sh:NodeShape ;
+    sh:targetClass skos:ConceptScheme ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path skos:prefLabel ;
+        sh:uniqueLang true ;
+        sh:message "A concept scheme must not have more than one skos:prefLabel per language." ;
+    ] ;
+    .
+
+# ============================================================
+# Hierarchical integrity: if a concept has skos:broader, the
+# target must be a skos:Concept
+# ============================================================
+
+cdifcl:conceptBroaderProperty
+    a sh:PropertyShape ;
+    sh:path skos:broader ;
+    sh:class skos:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:message "skos:broader targets must be IRIs typed as skos:Concept." ;
+    .
+
+cdifcl:broaderIntegrityShape
+    a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:property cdifcl:conceptBroaderProperty ;
+    .
+
+# ============================================================
+# Bidirectional hierarchy: if a concept is the object of
+# skos:narrower, it must also have skos:broader pointing back.
+# Both directions must be explicit in CDIF codelists.
+# ============================================================
+
+cdifcl:narrowerImpliesBroaderShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            SELECT ?this
+            WHERE {
+                ?parent skos:narrower ?this .
+                ?this a skos:Concept .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path skos:broader ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:message "A concept that is the target of skos:narrower must also declare skos:broader pointing to its parent concept. CDIF requires both directions to be explicit." ;
+    ] ;
+    .

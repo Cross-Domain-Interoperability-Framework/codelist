@@ -1,0 +1,73 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "mat": "https://w3id.org/isample/vocabulary/material/"
+  },
+  "@id": "mat:materialsvocabulary",
+  "@type": ["skos:ConceptScheme"],
+  "skos:prefLabel": "iSamples Materials Vocabulary",
+  "schema:identifier": "https://w3id.org/isample/vocabulary/material/",
+  "schema:dateModified": "2024-01-01",
+  "schema:url": "https://w3id.org/isample/vocabulary/material/",
+  "schema:license": ["https://creativecommons.org/licenses/by/4.0/"],
+  "skos:hasTopConcept": [
+    {
+      "@id": "mat:material",
+      "@type": ["skos:Concept"],
+      "skos:prefLabel": "Material",
+      "skos:definition": "Top Concept in iSamples Material Category scheme",
+      "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+      "skos:narrower": [
+        {
+          "@id": "mat:anyanthropogenicmaterial",
+          "@type": ["skos:Concept"],
+          "skos:prefLabel": "Anthropogenic material",
+          "skos:definition": "Material produced by human activity.",
+          "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+          "skos:broader": [{"@id": "mat:material"}]
+        },
+        {
+          "@id": "mat:anyice",
+          "@type": ["skos:Concept"],
+          "skos:prefLabel": "Any ice",
+          "skos:definition": "A material that is in a solid state under the temperature and pressure conditions of the preserved sample, but is a liquid or gas at Standard Temperature and Pressure.",
+          "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+          "skos:broader": [{"@id": "mat:material"}]
+        },
+        {
+          "@id": "mat:biogenicnonorganicmaterial",
+          "@type": ["skos:Concept"],
+          "skos:prefLabel": "Biogenic non-organic material",
+          "skos:definition": "Material produced by an organism but not composed of very large molecules of biological origin.",
+          "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+          "skos:broader": [{"@id": "mat:material"}]
+        },
+        {
+          "@id": "mat:earthmaterial",
+          "@type": ["skos:Concept"],
+          "skos:prefLabel": "Natural Solid Material",
+          "skos:definition": "A naturally occurring solid material that is not anthropogenic, biogenic, or ice.",
+          "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+          "skos:broader": [{"@id": "mat:material"}]
+        },
+        {
+          "@id": "mat:fluid",
+          "@type": ["skos:Concept"],
+          "skos:prefLabel": "Fluid material",
+          "skos:definition": "Substance that continually deforms (flows) under an applied shear stress, or external force.",
+          "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+          "skos:broader": [{"@id": "mat:material"}]
+        },
+        {
+          "@id": "mat:organicmaterial",
+          "@type": ["skos:Concept"],
+          "skos:prefLabel": "Organic material",
+          "skos:definition": "Material derived from living organisms and composed primarily of one or more very large molecules of biological origin.",
+          "skos:inScheme": {"@id": "mat:materialsvocabulary"},
+          "skos:broader": [{"@id": "mat:material"}]
+        }
+      ]
+    }
+  ]
+}
