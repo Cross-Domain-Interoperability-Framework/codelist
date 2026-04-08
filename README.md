@@ -44,6 +44,26 @@ Unlike other CDIF profiles, the Codelist profile does **not** require repeatable
 | `Examples/exampleCDIFCodelist.json` | iSamples Sampled Feature Type vocabulary (full, with hierarchy and history notes) |
 | `Examples/exampleCDIFCodelistMinimal.json` | iSamples Materials vocabulary (minimal, with hierarchy) |
 
+## JSON-LD Framing and Validation
+
+**`FrameAndValidate.py`** frames a SKOS ConceptScheme JSON-LD document against the Codelist profile schema and optionally validates it:
+
+```bash
+# Frame and validate
+python FrameAndValidate.py examples/exampleCDIFCodelist.json --validate
+
+# Frame and save output
+python FrameAndValidate.py examples/exampleCDIFCodelistMinimal.json -o framed.json
+```
+
+The script uses **`CDIFCodelist-frame.jsonld`** to frame JSON-LD documents. The frame targets `skos:ConceptScheme` (not `schema:Dataset`) and handles recursive concept hierarchies via `skos:narrower`/`skos:broader`. Context prefixes from the input document are automatically merged into the frame.
+
+**Requirements:** `pyld`, `jsonschema` (`pip install pyld jsonschema`)
+
+## SHACL Validation
+
+**`rules.shacl`** contains SHACL shapes for validating CDIF Codelist profile instances. Source shapes come from [`metadataBuildingBlocks/_sources/profiles/cdifProfiles/CDIFCodelistProfile/rules.shacl`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/_sources/profiles/cdifProfiles/CDIFCodelistProfile/rules.shacl) and should be updated whenever the source changes.
+
 ## Related repositories
 
 - **[metadataBuildingBlocks](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks)** — Source building block schemas (skosConceptScheme, skosConcept, CDIFCodelistProfile)
