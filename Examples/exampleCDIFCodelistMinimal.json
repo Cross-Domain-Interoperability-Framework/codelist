@@ -41,7 +41,8 @@
             {
               "@id": "mat:material"
             }
-          ]
+          ],
+          "skos:notation": "AM"
         },
         {
           "@id": "mat:anyice",
@@ -57,7 +58,8 @@
             {
               "@id": "mat:material"
             }
-          ]
+          ],
+          "skos:notation": "AI"
         },
         {
           "@id": "mat:biogenicnonorganicmaterial",
@@ -73,7 +75,8 @@
             {
               "@id": "mat:material"
             }
-          ]
+          ],
+          "skos:notation": "BNOM"
         },
         {
           "@id": "mat:earthmaterial",
@@ -89,7 +92,8 @@
             {
               "@id": "mat:material"
             }
-          ]
+          ],
+          "skos:notation": "NSM"
         },
         {
           "@id": "mat:fluid",
@@ -105,7 +109,8 @@
             {
               "@id": "mat:material"
             }
-          ]
+          ],
+          "skos:notation": "FM"
         },
         {
           "@id": "mat:organicmaterial",
@@ -121,9 +126,11 @@
             {
               "@id": "mat:material"
             }
-          ]
+          ],
+          "skos:notation": "OM"
         }
-      ]
+      ],
+      "skos:notation": "MAT"
     }
   ],
   "schema:subjectOf": {

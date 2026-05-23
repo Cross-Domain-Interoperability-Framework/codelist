@@ -9,14 +9,8 @@
   "@type": [
     "skos:ConceptScheme"
   ],
-  "skos:prefLabel": {
-    "@value": "Sampled Feature Type vocabulary",
-    "@language": "en"
-  },
-  "skos:definition": {
-    "@value": "Categories to specify the broad context that a sample is intended to represent.",
-    "@language": "en"
-  },
+  "skos:prefLabel": "Sampled Feature Type vocabulary",
+  "skos:definition": "Categories to specify the broad context that a sample is intended to represent.",
   "schema:identifier": "https://w3id.org/isample/vocabulary/sampledfeature/",
   "schema:dateModified": "2024-04-19",
   "schema:url": "https://w3id.org/isample/vocabulary/sampledfeature/",
@@ -34,42 +28,15 @@
   },
   "dcterms:created": "2021-03-17",
   "skos:historyNote": [
-    {
-      "@value": "2021-07-09  Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environment subclasses of Active human occupation site.",
-      "@language": "en"
-    },
-    {
-      "@value": "2021-12-10 SMR add missing skos:inScheme statements",
-      "@language": "en"
-    },
-    {
-      "@value": "2022-01-07 SMR change to https://w3id.org/isample/ uri base, make the ConceptScheme an ontology as well. For uploading to ESIP COR and w3id resolution redirect set up. Add some mappings to other ontologies using seeAlso, closeMatch, narrowMatch.",
-      "@language": "en"
-    },
-    {
-      "@value": "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies. Fix typo in glacierenvrionment URI (changed the URI to glacierenvironment)",
-      "@language": "en"
-    },
-    {
-      "@value": "2022-09-07 SMR update some of the skos mappings to other vocabularies; remove references to other vocabularies as NamedIndividual. Remove rocksample class, it was not linked in hierarchy and inconsistent with design.",
-      "@language": "en"
-    },
-    {
-      "@value": "2022-09-30 add biological entity as sampled feature, per issue https://github.com/isamplesorg/metadata/issues/107. This update was lost at some point and added back in 2022-12-09.",
-      "@language": "en"
-    },
-    {
-      "@value": "2023-11-05 SMR update version to 1.0, prep for release",
-      "@language": "en"
-    },
-    {
-      "@value": "2024-04-19 SMR update definitions to remove use of 'specimen'. Edit some definitions for better clarity",
-      "@language": "en"
-    },
-    {
-      "@value": "2024-09-13 remove version numbers from URI",
-      "@language": "en"
-    }
+    "2021-07-09  Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environment subclasses of Active human occupation site.",
+    "2021-12-10 SMR add missing skos:inScheme statements",
+    "2022-01-07 SMR change to https://w3id.org/isample/ uri base, make the ConceptScheme an ontology as well. For uploading to ESIP COR and w3id resolution redirect set up. Add some mappings to other ontologies using seeAlso, closeMatch, narrowMatch.",
+    "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies. Fix typo in glacierenvrionment URI (changed the URI to glacierenvironment)",
+    "2022-09-07 SMR update some of the skos mappings to other vocabularies; remove references to other vocabularies as NamedIndividual. Remove rocksample class, it was not linked in hierarchy and inconsistent with design.",
+    "2022-09-30 add biological entity as sampled feature, per issue https://github.com/isamplesorg/metadata/issues/107. This update was lost at some point and added back in 2022-12-09.",
+    "2023-11-05 SMR update version to 1.0, prep for release",
+    "2024-04-19 SMR update definitions to remove use of 'specimen'. Edit some definitions for better clarity",
+    "2024-09-13 remove version numbers from URI"
   ],
   "skos:hasTopConcept": [
     {
@@ -77,14 +44,8 @@
       "@type": [
         "skos:Concept"
       ],
-      "skos:prefLabel": {
-        "@value": "Any sampled feature",
-        "@language": "en"
-      },
-      "skos:definition": {
-        "@value": "Any thing that can be sampled. Top concept in sampled feature type vocabulary.",
-        "@language": "en"
-      },
+      "skos:prefLabel": "Any sampled feature",
+      "skos:definition": "Any thing that can be sampled. Top concept in sampled feature type vocabulary.",
       "skos:inScheme": {
         "@id": "sf:sampledfeaturevocabulary"
       },
@@ -97,14 +58,8 @@
           "@type": [
             "skos:Concept"
           ],
-          "skos:prefLabel": {
-            "@value": "Anthropogenic environment",
-            "@language": "en"
-          },
-          "skos:definition": {
-            "@value": "Sampled feature is produced by or related to human activity past or present.",
-            "@language": "en"
-          },
+          "skos:prefLabel": "Anthropogenic environment",
+          "skos:definition": "Sampled feature is produced by or related to human activity past or present.",
           "skos:inScheme": {
             "@id": "sf:sampledfeaturevocabulary"
           },
@@ -124,14 +79,8 @@
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Active human occupation site",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "sampled feature is a site at which there are ongoing human activities",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Active human occupation site",
+              "skos:definition": "sampled feature is a site at which there are ongoing human activities",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -146,14 +95,8 @@
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Experiment setting",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "Sampled feature is an experimental set up that produced the sample; the sample is the product of the experiment.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Experiment setting",
+                  "skos:definition": "Sampled feature is an experimental set up that produced the sample; the sample is the product of the experiment.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -161,21 +104,16 @@
                     {
                       "@id": "sf:activehumanoccupationsite"
                     }
-                  ]
+                  ],
+                  "skos:notation": "ES"
                 },
                 {
                   "@id": "sf:laboratorycuratorialenvironment",
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Laboratory or curatorial environment",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "Sampled feature is a laboratory or other research site, collected with intention of characterizing the environment in which data are collected or other research conducted, that might affect results or safety; e.g. lab blank measurements.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Laboratory or curatorial environment",
+                  "skos:definition": "Sampled feature is a laboratory or other research site, collected with intention of characterizing the environment in which data are collected or other research conducted, that might affect results or safety; e.g. lab blank measurements.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -188,23 +126,19 @@
                     {
                       "@id": "http://purl.obolibrary.org/obo/ENVO_01001405"
                     }
-                  ]
+                  ],
+                  "skos:notation": "LOCE"
                 }
-              ]
+              ],
+              "skos:notation": "AHOS"
             },
             {
               "@id": "sf:pasthumanoccupationsite",
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Site of past human activities",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "sampled feature is a place where humans have been and left evidence of their activity. Includes prehistoric and paleo hominid sites",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Site of past human activities",
+              "skos:definition": "sampled feature is a place where humans have been and left evidence of their activity. Includes prehistoric and paleo hominid sites",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -212,23 +146,19 @@
                 {
                   "@id": "sf:anthropogenicenvironment"
                 }
-              ]
+              ],
+              "skos:notation": "SOPHA"
             }
-          ]
+          ],
+          "skos:notation": "AE"
         },
         {
           "@id": "sf:biologicalentity",
           "@type": [
             "skos:Concept"
           ],
-          "skos:prefLabel": {
-            "@value": "Biological entity",
-            "@language": "en"
-          },
-          "skos:definition": {
-            "@value": "Sampled feature is an organism. Use for samples that represent some species of organism as the proximate sampled feature, not the environment that the organism inhabits.",
-            "@language": "en"
-          },
+          "skos:prefLabel": "Biological entity",
+          "skos:definition": "Sampled feature is an organism. Use for samples that represent some species of organism as the proximate sampled feature, not the environment that the organism inhabits.",
           "skos:inScheme": {
             "@id": "sf:sampledfeaturevocabulary"
           },
@@ -237,24 +167,16 @@
               "@id": "sf:anysampledfeature"
             }
           ],
-          "skos:note": {
-            "@value": "domain specific vocabulary extensions will be useful to distinguish samples from different phyla/order/class...",
-            "@language": "en"
-          }
+          "skos:note": "domain specific vocabulary extensions will be useful to distinguish samples from different phyla/order/class...",
+          "skos:notation": "BE"
         },
         {
           "@id": "sf:earthenvironment",
           "@type": [
             "skos:Concept"
           ],
-          "skos:prefLabel": {
-            "@value": "Earth environment",
-            "@language": "en"
-          },
-          "skos:definition": {
-            "@value": "Sampled feature is the natural Earth environment",
-            "@language": "en"
-          },
+          "skos:prefLabel": "Earth environment",
+          "skos:definition": "Sampled feature is the natural Earth environment",
           "skos:inScheme": {
             "@id": "sf:sampledfeaturevocabulary"
           },
@@ -269,14 +191,8 @@
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Atmosphere",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "Sampled feature is the Earth's atmosphere",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Atmosphere",
+              "skos:definition": "Sampled feature is the Earth's atmosphere",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -284,21 +200,16 @@
                 {
                   "@id": "sf:earthenvironment"
                 }
-              ]
+              ],
+              "skos:notation": "ATM"
             },
             {
               "@id": "sf:earthinterior",
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Earth interior",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "Sampled feature is solid material from within the Earth",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Earth interior",
+              "skos:definition": "Sampled feature is solid material from within the Earth",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -307,24 +218,16 @@
                   "@id": "sf:earthenvironment"
                 }
               ],
-              "skos:note": {
-                "@value": "fluids in pore space in earth interior sample 'Subsurface fluid reservoir'",
-                "@language": "en"
-              }
+              "skos:note": "fluids in pore space in earth interior sample 'Subsurface fluid reservoir'",
+              "skos:notation": "EI"
             },
             {
               "@id": "sf:earthsurface",
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Earth surface",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "Sampled feature is the interface between solid earth and hydrosphere or atmosphere. Includes samples representing things collected on the surface, in the uppermost part of the material below the surface, or air or water directly at the contact with the Earth surface.",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Earth surface",
+              "skos:definition": "Sampled feature is the interface between solid earth and hydrosphere or atmosphere. Includes samples representing things collected on the surface, in the uppermost part of the material below the surface, or air or water directly at the contact with the Earth surface.",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -344,14 +247,8 @@
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Lake river or stream bottom",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "Sampled feature is the interface between the solid Earth interface and a lake or flowing water body.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Lake river or stream bottom",
+                  "skos:definition": "Sampled feature is the interface between the solid Earth interface and a lake or flowing water body.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -364,25 +261,17 @@
                     {
                       "@id": "http://purl.obolibrary.org/obo/ENVO_00000384"
                     }
-                  ]
+                  ],
+                  "skos:notation": "LROSB"
                 },
                 {
                   "@id": "sf:marinewaterbodybottom",
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Marine water body bottom",
-                    "@language": "en"
-                  },
-                  "skos:altLabel": {
-                    "@value": "Sea floor",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "Sampled feature is the interface between the solid Earth and a marine or brackish water body. Includes benthic boundary layer:  the bottom layer of water and the uppermost layer of sediment directly influenced by the overlying water.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Marine water body bottom",
+                  "skos:altLabel": "Sea floor",
+                  "skos:definition": "Sampled feature is the interface between the solid Earth and a marine or brackish water body. Includes benthic boundary layer:  the bottom layer of water and the uppermost layer of sediment directly influenced by the overlying water.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -395,21 +284,16 @@
                     {
                       "@id": "http://purl.obolibrary.org/obo/ENVO_00000482"
                     }
-                  ]
+                  ],
+                  "skos:notation": "MWBB"
                 },
                 {
                   "@id": "sf:subaerialsurfaceenvironment",
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Subaerial surface environment",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "sampled feature is the interface between solid Earth and atmosphere.  Sample is collected on the surface, or immediately below surface (zone of bioturbation). Include soil and recently deposited subaerial sediment at the surface.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Subaerial surface environment",
+                  "skos:definition": "sampled feature is the interface between solid Earth and atmosphere.  Sample is collected on the surface, or immediately below surface (zone of bioturbation). Include soil and recently deposited subaerial sediment at the surface.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -422,23 +306,19 @@
                     {
                       "@id": "http://purl.obolibrary.org/obo/RBO_00000017"
                     }
-                  ]
+                  ],
+                  "skos:notation": "SSE"
                 }
-              ]
+              ],
+              "skos:notation": "ES2"
             },
             {
               "@id": "sf:glacierenvironment",
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Glacier environment",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "Sampled feature is a glacier, ice sheet, ice shelf, iceberg, or rock or water directly under or on top of such ice.",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Glacier environment",
+              "skos:definition": "Sampled feature is a glacier, ice sheet, ice shelf, iceberg, or rock or water directly under or on top of such ice.",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -451,21 +331,16 @@
                 {
                   "@id": "http://purl.obolibrary.org/obo/ENVO_00000133"
                 }
-              ]
+              ],
+              "skos:notation": "GE"
             },
             {
               "@id": "sf:subsurfacefluidreservoir",
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Subsurface fluid reservoir",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "Sampled feature is fluid that resides in fractures, intergranular porosity or other open space in the solid earth.",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Subsurface fluid reservoir",
+              "skos:definition": "Sampled feature is fluid that resides in fractures, intergranular porosity or other open space in the solid earth.",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -481,21 +356,16 @@
                 {
                   "@id": "http://purl.obolibrary.org/obo/ENVO_00012408"
                 }
-              ]
+              ],
+              "skos:notation": "SFR"
             },
             {
               "@id": "sf:waterbody",
               "@type": [
                 "skos:Concept"
               ],
-              "skos:prefLabel": {
-                "@value": "Water body",
-                "@language": "en"
-              },
-              "skos:definition": {
-                "@value": "Sampled feature is the Earth's hydrosphere.",
-                "@language": "en"
-              },
+              "skos:prefLabel": "Water body",
+              "skos:definition": "Sampled feature is the Earth's hydrosphere.",
               "skos:inScheme": {
                 "@id": "sf:sampledfeaturevocabulary"
               },
@@ -515,14 +385,8 @@
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Marine environment",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "Sampled feature is the marine hydrosphere.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Marine environment",
+                  "skos:definition": "Sampled feature is the marine hydrosphere.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -535,21 +399,16 @@
                     {
                       "@id": "http://purl.obolibrary.org/obo/ENVO_00001999"
                     }
-                  ]
+                  ],
+                  "skos:notation": "ME"
                 },
                 {
                   "@id": "sf:terrestrialwaterbody",
                   "@type": [
                     "skos:Concept"
                   ],
-                  "skos:prefLabel": {
-                    "@value": "Terrestrial water body",
-                    "@language": "en"
-                  },
-                  "skos:definition": {
-                    "@value": "Sampled feature is terrestrial hydrosphere-- lake, other standing water, or a flowing water body (river, stream..). Include saline water in terrestrial evaporite environments.",
-                    "@language": "en"
-                  },
+                  "skos:prefLabel": "Terrestrial water body",
+                  "skos:definition": "Sampled feature is terrestrial hydrosphere-- lake, other standing water, or a flowing water body (river, stream..). Include saline water in terrestrial evaporite environments.",
                   "skos:inScheme": {
                     "@id": "sf:sampledfeaturevocabulary"
                   },
@@ -557,25 +416,22 @@
                     {
                       "@id": "sf:waterbody"
                     }
-                  ]
+                  ],
+                  "skos:notation": "TWB"
                 }
-              ]
+              ],
+              "skos:notation": "WB"
             }
-          ]
+          ],
+          "skos:notation": "EE"
         },
         {
           "@id": "sf:extraterrestrialenvironment",
           "@type": [
             "skos:Concept"
           ],
-          "skos:prefLabel": {
-            "@value": "Extraterrestrial environment",
-            "@language": "en"
-          },
-          "skos:definition": {
-            "@value": "Sampled feature is the environment outside of solid earth, hydrosphere, or atmosphere.",
-            "@language": "en"
-          },
+          "skos:prefLabel": "Extraterrestrial environment",
+          "skos:definition": "Sampled feature is the environment outside of solid earth, hydrosphere, or atmosphere.",
           "skos:inScheme": {
             "@id": "sf:sampledfeaturevocabulary"
           },
@@ -588,9 +444,11 @@
             {
               "@id": "http://purl.bioontology.org/ontology/MESH/D005118"
             }
-          ]
+          ],
+          "skos:notation": "EE2"
         }
-      ]
+      ],
+      "skos:notation": "ASF"
     }
   ],
   "schema:subjectOf": {

@@ -26,7 +26,7 @@ SCRIPT_DIR = Path(__file__).parent
 ARRAY_PROPERTIES = [
     'skos:hasTopConcept',
     'skos:altLabel',
-    'skos:notation',
+    'skos:inScheme',
     'skos:narrower',
     'skos:broader',
     'skos:related',
@@ -42,8 +42,10 @@ ARRAY_PROPERTIES = [
     'skos:example',
     'skos:note',
     'skos:scopeNote',
+    'schema:license',
     'dcterms:conformsTo',
 ]
+# Note: skos:notation is single-valued (schema type: string) -- do NOT array-wrap it.
 
 # Term mappings: unprefixed -> prefixed (to match schema expectations)
 TERM_MAPPINGS = {
