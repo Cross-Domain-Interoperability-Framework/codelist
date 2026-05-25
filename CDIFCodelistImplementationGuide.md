@@ -23,7 +23,7 @@ Additional namespace prefixes may be included for concept URIs (e.g., `"sf": "ht
 
 # Model
 
-## ConceptScheme {#sec-conceptscheme}
+## ConceptScheme
 
 The root object representing the controlled vocabulary or classification scheme.
 
@@ -51,7 +51,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Required
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array of [LanguageTaggedValue](#sec-languagetaggedvalue)
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array of [LanguageTaggedValue](#languagetaggedvalue)
 
 **Description:** Preferred human-readable label for the scheme. At most one per language.
 
@@ -60,7 +60,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Required, Repeatable
 
-**Content:** array of [CdifCodelistConcept](#sec-cdifcodelistconcept) or [object reference](#sec-objectreference)
+**Content:** array of [CdifCodelistConcept](#cdifcodelistconcept) or [object reference](#object-reference)
 
 **Description:** Top-level concepts that have no `skos:broader` within this scheme. The JSON-LD hierarchy is rooted here — all child concepts are reached by traversing `skos:narrower` from these top concepts.
 
@@ -69,7 +69,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Required
 
-**Content:** string or [PropertyValue](#sec-propertyvalue)
+**Content:** string or [PropertyValue](#propertyvalue-for-schemaidentifier)
 
 **Description:** Primary identifier for the codelist. CDIF core metadata property; takes precedence over `dcterms:identifier`.
 
@@ -89,7 +89,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Required if no conditionsOfAccess
 
-**Content:** array of string or [object reference](#sec-objectreference)
+**Content:** array of string or [object reference](#object-reference)
 
 **Description:** License for the codelist. Takes precedence over `dcterms:license`.
 
@@ -127,7 +127,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Formal explanation of the meaning or purpose of the scheme.
 
@@ -136,7 +136,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Alternative labels (acronyms, abbreviations, spelling variants).
 
@@ -145,7 +145,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Labels accessible to free-text search but not displayed.
 
@@ -163,7 +163,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** General note about the scheme.
 
@@ -172,7 +172,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Note clarifying the intended scope.
 
@@ -181,7 +181,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Note about the history of the scheme.
 
@@ -190,7 +190,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Note documenting a change.
 
@@ -199,7 +199,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Note for editors and maintainers.
 
@@ -208,7 +208,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Example of use.
 
@@ -217,7 +217,7 @@ The root object representing the controlled vocabulary or classification scheme.
 
 **Cardinality:** Optional
 
-**Content:** string, [object reference](#sec-objectreference), or agent object
+**Content:** string, [object reference](#object-reference), or agent object
 
 **Description:** Creator of the scheme. Open-world; CDIF recommends `schema:creator` if using schema.org agents.
 
@@ -240,7 +240,7 @@ The root object representing the controlled vocabulary or classification scheme.
 **Description:** Version identifier for the scheme.
 
 
-## CdifCodelistConcept {#sec-cdifcodelistconcept}
+## CdifCodelistConcept
 
 A SKOS Concept with CDIF codelist constraints. Represents a single term or category within a concept scheme.
 
@@ -268,7 +268,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Required
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array of [LanguageTaggedValue](#sec-languagetaggedvalue)
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array of [LanguageTaggedValue](#languagetaggedvalue)
 
 **Description:** Preferred label. At most one per language (enforced by SHACL `sh:uniqueLang`).
 
@@ -277,7 +277,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Required
 
-**Content:** [object reference](#sec-objectreference) or array of object references
+**Content:** [object reference](#object-reference) or array of object references
 
 **Description:** The concept scheme(s) this concept belongs to. Each must be `{"@id": "scheme-uri"}`.
 
@@ -286,7 +286,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Required
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Formal definition of this concept.
 
@@ -306,7 +306,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional, Repeatable
 
-**Content:** array of [CdifCodelistConcept](#sec-cdifcodelistconcept) or [object reference](#sec-objectreference)
+**Content:** array of [CdifCodelistConcept](#cdifcodelistconcept) or [object reference](#object-reference)
 
 **Description:** Narrower (child) concepts. If present, each inline child concept must have `skos:broader` pointing back to this concept. Items can be full inline concept objects (for building the JSON tree) or `{"@id": "child-uri"}` references.
 
@@ -315,7 +315,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Alternative labels.
 
@@ -324,7 +324,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Labels for search but not display.
 
@@ -342,7 +342,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** General note.
 
@@ -351,7 +351,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Scope clarification.
 
@@ -360,7 +360,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** History note.
 
@@ -369,7 +369,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Change documentation.
 
@@ -378,7 +378,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Editor note.
 
@@ -387,7 +387,7 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+**Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 
 **Description:** Usage example.
 
@@ -450,14 +450,14 @@ A SKOS Concept with CDIF codelist constraints. Represents a single term or categ
 
 **Cardinality:** Optional
 
-**Content:** [object reference](#sec-objectreference) or array
+**Content:** [object reference](#object-reference) or array
 
 **Description:** Scheme(s) for which this is a top concept.
 
 
 ## Data Types
 
-### LanguageTaggedValue {#sec-languagetaggedvalue}
+### LanguageTaggedValue
 
 An RDF literal with a language tag, serialized as a JSON-LD value object.
 
@@ -483,7 +483,7 @@ An RDF literal with a language tag, serialized as a JSON-LD value object.
 {"@value": "Sampled Feature Type vocabulary", "@language": "en"}
 ```
 
-### Object Reference {#sec-objectreference}
+### Object Reference
 
 A reference to another node by its `@id`, used for linking to concepts or schemes defined elsewhere in the graph or externally.
 
@@ -491,7 +491,7 @@ A reference to another node by its `@id`, used for linking to concepts or scheme
 {"@id": "https://w3id.org/isample/vocabulary/sampledfeature/anysampledfeature"}
 ```
 
-### PropertyValue (for schema:identifier) {#sec-propertyvalue}
+### PropertyValue (for schema:identifier)
 
 When the identifier is not a simple resolvable URI, use `schema:PropertyValue`:
 
