@@ -74,6 +74,11 @@ The script uses **`CDIFCodelist-frame.jsonld`** to frame JSON-LD documents. The 
 
 This profile aligns with the approach described in ['Modelling of Eurostat's Statistical Classifications in ShowVoc'](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc).
 
+## Development branch
+
+Active work for the 2026-06 review revision is on the `reviewRevision202606` branch. `main` reflects the prior release state. New changes should target the review branch; it is merged to main on release.
+
+
 ## License
 
 See [LICENSE](LICENSE).
