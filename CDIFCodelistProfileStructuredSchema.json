@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "title": "CDIF Codelist profile",
-  "description": "CDIF profile for controlled-vocabulary codelists. Composes the cdifCodelist building block: a skos:ConceptScheme constrained for CDIF codelist use (resolvable @id; each concept requires @id, skos:inScheme, skos:prefLabel, skos:notation; both skos:narrower and skos:broader required where there is hierarchy). schema: metadata properties (schema:identifier, schema:dateModified, schema:license or schema:conditionsOfAccess) take precedence over the equivalent dcterms properties from the base skos:ConceptScheme.",
+  "title": "CDIF Codelist",
+  "description": "A controlled-vocabulary codelist implemented as a skos:ConceptScheme constrained for CDIF use. The scheme must have a resolvable @id and identify its top concepts via skos:hasTopConcept; each concept (CdifCodelistConcept) must have a resolvable @id, skos:inScheme, skos:prefLabel, and skos:notation. Hierarchical concepts must declare both skos:narrower (for JSON tree traversal) and skos:broader (for upward navigation) where hierarchy exists. CDIF metadata properties (schema:identifier, schema:dateModified, schema:license or schema:conditionsOfAccess) take precedence over the equivalent dcterms properties from the base skos:ConceptScheme.",
   "properties": {
     "@context": {
       "description": "JSON-LD context (an object) declaring the skos namespace prefix and any additional prefixes used in concept URIs.",
@@ -116,31 +116,41 @@
       "items": {
         "$ref": "#/$defs/CdifCodelistConcept"
       }
+    },
+    "schema:subjectOf": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@id": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "https://w3id.org/cdif/codelist/1.0"
+              }
+            }
+          }
+        }
+      }
     }
   },
-  "allOf": [
+  "anyOf": [
     {
-      "anyOf": [
-        {
-          "required": [
-            "schema:license"
-          ]
-        },
-        {
-          "required": [
-            "schema:conditionsOfAccess"
-          ]
-        }
+      "required": [
+        "schema:license"
       ]
     },
     {
       "required": [
-        "@id",
-        "schema:identifier",
-        "schema:dateModified",
-        "skos:hasTopConcept"
+        "schema:conditionsOfAccess"
       ]
     }
+  ],
+  "required": [
+    "@id",
+    "schema:identifier",
+    "schema:dateModified",
+    "skos:hasTopConcept"
   ],
   "$defs": {
     "CdifCodelistConcept": {
