@@ -13,11 +13,11 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 - [Namespaces](#namespaces)
 - [Model](#model)
-  - [CdifCodelistConcept](#sec-cdifcodelistconcept)
-  - [ConceptScheme](#sec-conceptscheme)
+  - [CdifCodelistConcept](#cdifcodelistconcept)
+  - [ConceptScheme](#conceptscheme)
   - [Data Types](#data-types)
-  - [LanguageTaggedValue](#sec-languagetaggedvalue)
-  - [Object Reference](#sec-objectreference)
+  - [LanguageTaggedValue](#languagetaggedvalue)
+  - [Object Reference](#object-reference)
   - [Optional Properties](#optional-properties)
   - [Optional Properties](#optional-properties)
   - [Required Properties](#required-properties)
@@ -37,11 +37,11 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 # Model
 
-## CdifCodelistConcept {#sec-cdifcodelistconcept}
+## CdifCodelistConcept
 
 - SKOS Concept with CDIF codelist constraints. Represents a single term or category within a concept scheme.
 
-## ConceptScheme {#sec-conceptscheme}
+## ConceptScheme
 
 - The root object representing the codelist or classification scheme.
 
@@ -60,19 +60,19 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ### skos:prefLabel
 
 - **Cardinality:** Required
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array of [LanguageTaggedValue](#sec-languagetaggedvalue)
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array of [LanguageTaggedValue](#languagetaggedvalue)
 - **Description:** Preferred human-readable label for the scheme. At most one per language.
 
 ### skos:hasTopConcept
 
 - **Cardinality:** Required, Repeatable
-- **Content:** array of [CdifCodelistConcept](#sec-cdifcodelistconcept) or [object reference](#sec-objectreference)
+- **Content:** array of [CdifCodelistConcept](#cdifcodelistconcept) or [object reference](#object-reference)
 - **Description:** Top-level concepts that have no `skos:broader` within this scheme. The JSON-LD hierarchy is rooted here — all child concepts are reached by traversing `skos:narrower` from these top concepts.
 
 ### schema:identifier
 
 - **Cardinality:** Required
-- **Content:** string or [PropertyValue](#sec-propertyvalue)
+- **Content:** string or [PropertyValue](#propertyvalue-for-schemaidentifier)
 - **Description:** Primary identifier for the codelist. CDIF core metadata property; takes precedence over `dcterms:identifier`.
 
 ### schema:dateModified
@@ -86,7 +86,7 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ### schema:license
 
 - **Cardinality:** Required if no conditionsOfAccess
-- **Content:** array of string or [object reference](#sec-objectreference)
+- **Content:** array of string or [object reference](#object-reference)
 - **Description:** License for the codelist. Takes precedence over `dcterms:license`.
 
 ### schema:conditionsOfAccess
@@ -97,7 +97,7 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 ## Data Types
 
-## LanguageTaggedValue {#sec-languagetaggedvalue}
+## LanguageTaggedValue
 
 - An RDF literal with a language tag, serialized as a JSON-LD value object.
 
@@ -116,14 +116,14 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 {"@value": "Sampled Feature Type vocabulary", "@language": "en"}
 ```
 
-## Object Reference {#sec-objectreference}
+## Object Reference
 
 - A reference to another node by its `@id`, used for linking to concepts or schemes defined elsewhere in the graph or externally.
 ```json
 {"@id": "https://w3id.org/isample/vocabulary/sampledfeature/anysampledfeature"}
 ```
 
-### PropertyValue (for schema:identifier) {#sec-propertyvalue}
+### PropertyValue (for schema:identifier)
 
 - When the identifier is not a simple resolvable URI, use `schema:PropertyValue`:
 
@@ -153,19 +153,19 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ### skos:definition
 
 - **Cardinality:** Optional
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 - **Description:** Formal explanation of the meaning or purpose of the scheme.
 
 ### skos:altLabel
 
 - **Cardinality:** Optional
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 - **Description:** Alternative labels (acronyms, abbreviations, spelling variants).
 
 ### skos:note
 
 - **Cardinality:** Optional
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 - **Description:** General note about the scheme.
 
 ## Optional Properties
@@ -173,13 +173,13 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ### skos:inScheme
 
 - **Cardinality:** Required
-- **Content:** [object reference](#sec-objectreference) or array of object references
+- **Content:** [object reference](#object-reference) or array of object references
 - **Description:** The concept scheme(s) this concept belongs to. Each must be `{"@id": "scheme-uri"}`.
 
 ### skos:definition
 
 - **Cardinality:** Required
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 - **Description:** Formal definition of this concept.
 
 ### skos:broader
@@ -191,25 +191,25 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ### skos:narrower
 
 - **Cardinality:** Optional, Repeatable
-- **Content:** array of [CdifCodelistConcept](#sec-cdifcodelistconcept) or [object reference](#sec-objectreference)
+- **Content:** array of [CdifCodelistConcept](#cdifcodelistconcept) or [object reference](#object-reference)
 - **Description:** Narrower (child) concepts. If present, each inline child concept must have `skos:broader` pointing back to this concept. Items can be full inline concept objects (for building the JSON tree) or `{"@id": "child-uri"}` references.
 
 ### skos:altLabel
 
 - **Cardinality:** Optional
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 - **Description:** Alternative labels.
 
 ### skos:note
 
 - **Cardinality:** Optional
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array
 - **Description:** General note.
 
 ### skos:topConceptOf
 
 - **Cardinality:** Optional
-- **Content:** [object reference](#sec-objectreference) or array
+- **Content:** [object reference](#object-reference) or array
 - **Description:** Scheme(s) for which this is a top concept.
 
 ## Required Properties
@@ -229,7 +229,7 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ### skos:prefLabel
 
 - **Cardinality:** Required
-- **Content:** string, [LanguageTaggedValue](#sec-languagetaggedvalue), or array of [LanguageTaggedValue](#sec-languagetaggedvalue)
+- **Content:** string, [LanguageTaggedValue](#languagetaggedvalue), or array of [LanguageTaggedValue](#languagetaggedvalue)
 - **Description:** Preferred label. At most one per language (enforced by SHACL `sh:uniqueLang`).
 
 ### skos:notation
