@@ -27,6 +27,8 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 # Namespaces
 
+[↑ Back to TOC](#table-of-contents)
+
 ```json
 "@context": {
   "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -37,11 +39,17 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 # Model
 
+[↑ Back to TOC](#table-of-contents)
+
 ## CdifCodelistConcept
+
+[↑ Back to TOC](#table-of-contents)
 
 - SKOS Concept with CDIF codelist constraints. Represents a single term or category within a concept scheme.
 
 ## ConceptScheme
+
+[↑ Back to TOC](#table-of-contents)
 
 - The root object representing the codelist or classification scheme.
 
@@ -97,7 +105,11 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 ## Data Types
 
+[↑ Back to TOC](#table-of-contents)
+
 ## LanguageTaggedValue
+
+[↑ Back to TOC](#table-of-contents)
 
 - An RDF literal with a language tag, serialized as a JSON-LD value object.
 
@@ -118,6 +130,8 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 ## Object Reference
 
+[↑ Back to TOC](#table-of-contents)
+
 - A reference to another node by its `@id`, used for linking to concepts or schemes defined elsewhere in the graph or externally.
 ```json
 {"@id": "https://w3id.org/isample/vocabulary/sampledfeature/anysampledfeature"}
@@ -137,6 +151,8 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 ```
 
 ## Optional Properties
+
+[↑ Back to TOC](#table-of-contents)
 
 ### schema:url
 
@@ -169,6 +185,8 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 - **Description:** General note about the scheme.
 
 ## Optional Properties
+
+[↑ Back to TOC](#table-of-contents)
 
 ### skos:inScheme
 
@@ -214,6 +232,8 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 
 ## Required Properties
 
+[↑ Back to TOC](#table-of-contents)
+
 ### @id
 
 - **Cardinality:** Required
@@ -239,6 +259,8 @@ The implementation uses the [SKOS (Simple Knowledge Organization System)](https:
 - **Description:** Classification codes. Should be unique within the scheme.
 
 # Bidirectional Hierarchy
+
+[↑ Back to TOC](#table-of-contents)
 
 CDIF codelists require concept hierarchies to be expressed in both directions:
 
@@ -270,6 +292,8 @@ Any concept that appears as a value of `skos:narrower` **must** also declare `sk
 
 # Array Convention
 
+[↑ Back to TOC](#table-of-contents)
+
 Unlike other CDIF profiles, the Codelist profile does **not** require repeatable properties to always be serialized as arrays. This recognizes standard SKOS practice that allows either a single string or an array for literal values. For example, both of these are valid:
 
 ```json
@@ -286,6 +310,8 @@ Unlike other CDIF profiles, the Codelist profile does **not** require repeatable
 Consumers of CDIF codelist documents should test whether a value is a string or an array before iterating.
 
 # Validation
+
+[↑ Back to TOC](#table-of-contents)
 
 - **JSON Schema** validates structure: codelist required properties (`@id`, `skos:prefLabel`, `skos:hasTopConcept`, `schema:identifier`, `schema:dateModified`, license/access), concept requirements (`@id`, `skos:notation`, `skos:prefLabel`), and bidirectional hierarchy (inline narrower concepts must have `skos:broader`)
 - **SHACL** validates RDF constraints: `sh:uniqueLang` on `skos:prefLabel`, `sh:class skos:ConceptScheme` on `skos:inScheme`, `sh:class skos:Concept` on `skos:broader`, and the `narrowerImpliesBroaderShape` SPARQL-targeted rule
