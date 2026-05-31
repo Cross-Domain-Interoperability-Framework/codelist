@@ -1,6 +1,6 @@
 # CDIF Codelist Profile
 
-A CDIF profile for controlled vocabulary codelists implemented as [SKOS ConceptSchemes](https://www.w3.org/TR/skos-reference/) in JSON-LD. Defines how classification schemes, thesauri, and enumerated value domains are represented with machine-enforceable constraints.
+A CDIF profile for controlled vocabulary codelists implemented as a [SKOS ConceptScheme](https://www.w3.org/TR/skos-reference/) in JSON-LD. Defines how classification schemes, thesauri, and enumerated value domains are represented with machine-enforceable constraints.
 
 ## Specification
 
