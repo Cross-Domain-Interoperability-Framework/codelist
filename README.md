@@ -4,7 +4,7 @@ A CDIF profile for controlled vocabulary codelists implemented as a [SKOS Concep
 
 ## Specification
 
-- **[CDIFCodelistProfileClasses.md](CDIFCodelistProfileClasses.md)** — Complete classes and properties documentation
+- **[Implementation Guide](CDIFCodelistImplementationGuide.md)** — Complete classes and properties documentation
 - **[CDIFCodelistProfileStructuredSchema.json](CDIFCodelistProfileStructuredSchema.json)** — JSON Schema for validation (generated from metadataBuildingBlocks)
 - **[rules.shacl](rules.shacl)** — SHACL validation shapes (synced from metadataBuildingBlocks)
 
