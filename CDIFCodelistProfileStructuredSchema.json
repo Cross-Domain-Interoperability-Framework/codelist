@@ -118,20 +118,73 @@
       }
     },
     "schema:subjectOf": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "@id": {
+      "description": "Catalog record describing this codelist as CDIF-conformant metadata. Must declare conformance to the cdifCodelist profile via dcterms:conformsTo and be typed as schema:Dataset with schema:additionalType including dcat:CatalogRecord.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:Dataset"
+          },
+          "minItems": 1
+        },
+        "schema:additionalType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "dcat:CatalogRecord"
+          },
+          "minItems": 1
+        },
+        "dcterms:conformsTo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "contains": {
             "type": "object",
             "properties": {
               "@id": {
                 "const": "https://w3id.org/cdif/codelist/1.0"
               }
             }
-          }
+          },
+          "minItems": 1
+        },
+        "@id": {
+          "type": "string",
+          "description": "Identifier for the catalog record."
+        },
+        "schema:about": {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
         }
-      }
+      },
+      "required": [
+        "@type",
+        "schema:additionalType",
+        "dcterms:conformsTo"
+      ]
     }
   },
   "anyOf": [
@@ -148,6 +201,7 @@
   ],
   "required": [
     "@id",
+    "skos:prefLabel",
     "schema:identifier",
     "schema:dateModified",
     "skos:hasTopConcept"

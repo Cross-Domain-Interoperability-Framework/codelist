@@ -43,7 +43,7 @@ ARRAY_PROPERTIES = [
     'skos:note',
     'skos:scopeNote',
     'schema:license',
-    'schema:subjectOf',
+    'schema:additionalType',
     'dcterms:conformsTo',
 ]
 # Note: skos:notation is single-valued (schema type: string) -- do NOT array-wrap it.

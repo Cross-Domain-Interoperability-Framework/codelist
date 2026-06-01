@@ -134,6 +134,12 @@
     }
   ],
   "schema:subjectOf": {
+    "@type": ["schema:Dataset"],
+    "schema:additionalType": ["dcat:CatalogRecord"],
+    "dcterms:conformsTo": [
+      {"@id": "https://w3id.org/cdif/codelist/1.0"}
+    ],
+    "schema:about": {"@id": "mat:materialsvocabulary"},
     "schema:description": "Adapted from the iSamples Materials Vocabulary, originally published as a SKOS OWL ontology at https://w3id.org/isample/vocabulary/material/. Converted to CDIF codelist profile JSON-LD with SKOS ConceptScheme structure."
   }
 }
