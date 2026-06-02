@@ -158,7 +158,7 @@
             "type": "object",
             "properties": {
               "@id": {
-                "const": "https://w3id.org/cdif/codelist/1.0"
+                "const": "https://w3id.org/cdif/codelist/1.1"
               }
             }
           },
