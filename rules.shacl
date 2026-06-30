@@ -34,11 +34,11 @@ cdifd:CDIFCodelistConformsToShape a sh:NodeShape ;
             sh:path dcterms:conformsTo ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:prefixes cdifd: ;
-            sh:select """\r
-                PREFIX schema: <http://schema.org/>\r
-                SELECT ?this WHERE {\r
-                    ?dataset schema:subjectOf ?this .\r
-                }\r
+            sh:select """
+                PREFIX schema: <http://schema.org/>
+                SELECT ?this WHERE {
+                    ?dataset schema:subjectOf ?this .
+                }
             """ ] .
 
 cdifd:CDIFCodelistShape a sh:NodeShape ;
