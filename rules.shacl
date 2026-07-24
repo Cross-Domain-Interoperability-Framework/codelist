@@ -36,8 +36,10 @@ cdifd:CDIFCodelistConformsToShape a sh:NodeShape ;
             sh:prefixes cdifd: ;
             sh:select """
                 PREFIX schema: <http://schema.org/>
+                PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
                 SELECT ?this WHERE {
                     ?dataset schema:subjectOf ?this .
+                    ?dataset a skos:ConceptScheme .
                 }
             """ ] .
 

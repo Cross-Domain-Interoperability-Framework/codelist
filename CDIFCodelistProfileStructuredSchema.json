@@ -98,7 +98,7 @@
       }
     },
     "skos:prefLabel": {
-      "description": "Preferred lexical label for the concept scheme. A single string, a single language-tagged value, or an array of language-tagged values. Each language should appear at most once.",
+      "description": "Preferred lexical label for the concept scheme. Required. A single\nstring, a single language-tagged value, or an array of language-tagged\nvalues.\n\n**Uniqueness rule.** Each language should appear at most once in the\nset of prefLabel values. Two prefLabel values with duplicate `@language`\ntags are non-conformant. Consumers may reject or arbitrarily pick one.\n\n**Multilinguality.** For codelists intended for multilingual use,\nsupply an array of language-tagged values — one per supported locale.\nWhen a bare string is supplied (no `@language` tag), consumers treat\nit as untagged and MAY infer the language from the enclosing document's\n`@context` or from `schema:inLanguage` on the codelist itself.\n\n**Relationship to skos:altLabel.** Alternate labels (acronyms,\nspelling variants, obsolete names) go on `skos:altLabel`, NOT on\n`prefLabel`. A concept scheme has exactly one preferred label per\nlanguage.\n",
       "type": "string"
     },
     "skos:definition": {
@@ -231,7 +231,7 @@
           }
         },
         "skos:prefLabel": {
-          "description": "Preferred lexical label for this concept. A single string, a single language-tagged value, or an array of language-tagged values. Each language should appear at most once.",
+          "description": "Preferred lexical label for this concept. A single string,\na single language-tagged value, or an array of language-tagged values.\nEach language should appear at most once.\n\n**Uniqueness rule.** Each language should appear at most once in the\nset of prefLabel values. Two prefLabel values with duplicate `@language`\ntags are non-conformant. Consumers may reject or arbitrarily pick one.\n\n**Relationship to skos:altLabel.** Alternate labels (acronyms,\nspelling variants, obsolete names) go on `skos:altLabel`, NOT on\n`prefLabel`. A concept has exactly one preferred label per language.\n",
           "type": "string"
         },
         "skos:notation": {
