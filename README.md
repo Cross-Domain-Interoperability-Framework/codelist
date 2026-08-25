@@ -41,8 +41,8 @@ Unlike other CDIF profiles, the Codelist profile does **not** require repeatable
 
 | File | Description |
 |------|-------------|
-| `Examples/exampleCDIFCodelist.json` | iSamples Sampled Feature Type vocabulary (full, with hierarchy and history notes) |
-| `Examples/exampleCDIFCodelistMinimal.json` | iSamples Materials vocabulary (minimal, with hierarchy) |
+| `examples/exampleCdifCodelist.json` | iSamples Sampled Feature Type vocabulary (full, with hierarchy and history notes) |
+| `examples/exampleCDIFCodelistMinimal.json` | iSamples Materials vocabulary (minimal, with hierarchy) |
 
 ## JSON-LD Framing and Validation
 
